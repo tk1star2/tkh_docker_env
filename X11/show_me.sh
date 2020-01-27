@@ -1,0 +1,3 @@
+. .display
+feh cat.jpg
+
