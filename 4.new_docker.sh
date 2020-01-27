@@ -1,16 +1,17 @@
-xauth
-XSOCK=/tmp/.X11-unix\
+XSOCK=/tmp/.X11-unix
 XAUTH=/tmp/.docker.xauth
 XFILE=/run/user/1000
 
-TK_DATAPATH=./
+TK_DATAPATH=$(pwd)
 TK_XAUTH=$XAUTHORITY
 TK_DOWNLOAD=/home/$USER/Downloads
-DOCKER_HOME=/root/
+DOCKER_HOME=/root
 
 USER=tk1star2
 
+echo "TK DATAPATH is " $TK_DATAPATH
 echo "TK XAUTH is " $TK_XAUTH
+echo "XAUTH is " $XAUTH
 
 nvidia-docker run -d \
 	-p 6006:6006 \
