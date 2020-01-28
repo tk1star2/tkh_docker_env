@@ -5,6 +5,7 @@ XFILE=/run/user/1000
 TK_DATAPATH=$(pwd)
 TK_XAUTH=$XAUTHORITY
 TK_DOWNLOAD=/home/$USER/Downloads
+TK_NAME=ubuntu18.04-cuda9.0-cudnn7
 DOCKER_HOME=/root
 
 USER=tk1star2
@@ -28,10 +29,10 @@ nvidia-docker run -d \
 	-v $TK_XAUTH:$XAUTH:rw \
 	-v $TK_DATAPATH/dataset:$DOCKER_HOME/dataset:rw \
 	-v $TK_DOWNLOAD:/Downloads \
-	--name ubuntu18.04-cuda9.0-cudnn7 \
+	--name $TK_NAME \
 	-it tk1star2/tensorflow:tf1.14-trt6.0.1 bash
 
-docker cp ./X11 pyTorch:/root/
+docker cp ./X11 $TK_NAME:/root/
 sudo xhost +local:root
 
 #sudo cp /home/tk1star2/.Xauthority /root/
